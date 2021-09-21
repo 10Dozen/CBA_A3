@@ -2,7 +2,7 @@
 #include "\x\cba\addons\main\script_mod.hpp"
 
 // #define DEBUG_MODE_FULL
-// #define DISABLE_COMPILE_CACHE
+ #define DISABLE_COMPILE_CACHE
 // #define DEBUG_ENABLED_OPTICS
 
 #ifdef DEBUG_ENABLED_OPTICS
@@ -29,6 +29,7 @@
 #define IDC_RETICLE 4000
 #define IDC_BODY 4001
 #define IDC_BODY_NIGHT 4002
+#define IDC_BODY_INNER_SHADOW 4003
 #define IDC_RETICLE_SAFEZONE 4010
 #define IDC_BLACK_SCOPE 4020
 #define IDC_BLACK_LEFT 4021

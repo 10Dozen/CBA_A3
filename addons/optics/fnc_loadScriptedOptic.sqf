@@ -33,6 +33,7 @@ private _ctrlRedDot = _display displayCtrl IDC_RED_DOT;
 private _ctrlReticle = _display displayCtrl IDC_RETICLE;
 private _ctrlBody = _display displayCtrl IDC_BODY;
 private _ctrlBodyNight = _display displayCtrl IDC_BODY_NIGHT;
+private _ctrlBodyInnerShadow = _display displayCtrl IDC_BODY_INNER_SHADOW;
 private _ctrlBlackScope = _display displayCtrl IDC_BLACK_SCOPE;
 private _ctrlBlackLeft = _display displayCtrl IDC_BLACK_LEFT;
 private _ctrlBlackRight = _display displayCtrl IDC_BLACK_RIGHT;
@@ -43,6 +44,7 @@ _ctrlRedDot ctrlShow false;
 _ctrlReticle ctrlShow false;
 _ctrlBody ctrlShow false;
 _ctrlBodyNight ctrlShow false;
+_ctrlBodyInnerShadow ctrlShow false;
 _ctrlBlackScope ctrlShow false;
 _ctrlBlackLeft ctrlShow false;
 _ctrlBlackRight ctrlShow false;
@@ -73,6 +75,10 @@ _ctrlBody ctrlCommit 0;
 _ctrlBodyNight ctrlSetText GVAR(OpticBodyTextureNight);
 _ctrlBodyNight ctrlSetPosition _bodyPosition;
 _ctrlBodyNight ctrlCommit 0;
+
+_ctrlBodyInnerShadow ctrlSetText GVAR(OpticBodyInnerShadowTexture);
+_ctrlBodyInnerShadow ctrlSetPosition _bodyPosition;
+_ctrlBodyInnerShadow ctrlCommit 0;
 
 _ctrlReticleSafezone ctrlSetPosition [
     POS_X(GVAR(reticleSafezoneSize)),

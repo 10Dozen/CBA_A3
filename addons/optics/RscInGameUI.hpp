@@ -11,7 +11,7 @@ class RscInGameUI {
 
     class CBA_ScriptedOptic: RscWeaponZeroing {
         onLoad = QUOTE([ARR_2(_this select 0, true)] call FUNC(loadScriptedOptic));
-        controls[] = {"CA_FOVMode","ScopeBlack","Reticle","BodyNight","BodyDay","TrippleHeadLeft","TrippleHeadRight","CA_Zeroing","Magnification","ActiveDisplayHelper"};
+        controls[] = {"CA_FOVMode","ScopeBlack","Reticle","BodyInnerShadow","BodyNight","BodyDay","TrippleHeadLeft","TrippleHeadRight","CA_Zeroing","Magnification","ActiveDisplayHelper"};
 
         // Idea by Taosenai. This control can be used to determine whether the scope or the collimator is used.
         class CA_FOVMode: RscOpticsValue {
@@ -22,6 +22,12 @@ class RscInGameUI {
 
         class Reticle: RscPicture {
             idc = IDC_RETICLE;
+            w = 0;
+            h = 0;
+        };
+
+        class BodyInnerShadow: RscPicture {
+            idc = IDC_BODY_INNER_SHADOW;
             w = 0;
             h = 0;
         };
@@ -74,7 +80,7 @@ class RscInGameUI {
     };
 
     class CBA_ScriptedOptic_zooming: CBA_ScriptedOptic {
-        controls[] = {"CA_FOVMode","ScopeBlack","ReticleSafeZone","RedDot","BodyNight","BodyDay","TrippleHeadLeft","TrippleHeadRight","EnableAutoZoom","CA_Zeroing","Magnification","ActiveDisplayHelper"};
+        controls[] = {"CA_FOVMode","ScopeBlack","ReticleSafeZone","RedDot","BodyInnerShadow","BodyNight","BodyDay","TrippleHeadLeft","TrippleHeadRight","EnableAutoZoom","CA_Zeroing","Magnification","ActiveDisplayHelper"};
 
         class RedDot: RscPicture {
             idc = IDC_RED_DOT;

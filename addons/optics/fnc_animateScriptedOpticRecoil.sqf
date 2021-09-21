@@ -31,6 +31,7 @@ if (isNull _display) exitWith {};
 private _ctrlReticle = _display displayCtrl IDC_RETICLE;
 private _ctrlBody = _display displayCtrl IDC_BODY;
 private _ctrlBodyNight = _display displayCtrl IDC_BODY_NIGHT;
+private _ctrlBodyInnerShadow = _display displayCtrl IDC_BODY_INNER_SHADOW;
 private _ctrlBlackScope = _display displayCtrl IDC_BLACK_SCOPE;
 private _ctrlBlackLeft = _display displayCtrl IDC_BLACK_LEFT;
 private _ctrlBlackRight = _display displayCtrl IDC_BLACK_RIGHT;
@@ -88,12 +89,21 @@ private _positionBody = [
     POS_H(_size)
 ];
 
+private _positionBodyInnerShadow = [
+    POS_X(_sizeBody * 0.95 - _reticleShiftX),
+    POS_Y(_sizeBody * 0.95 - _reticleShiftY),
+    POS_W(_sizeBody * 0.95),
+    POS_H(_sizeBody * 0.95)
+];
+
 _ctrlBody ctrlSetPosition _positionBody;
 _ctrlBodyNight ctrlSetPosition _positionBody;
+// _ctrlBodyInnerShadow ctrlSetPosition _positionBodyInnerShadow;
 
 _ctrlReticle ctrlCommit 0;
 _ctrlBody ctrlCommit 0;
 _ctrlBodyNight ctrlCommit 0;
+// _ctrlBodyInnerShadow ctrlCommit 0;
 
 // Bring them all back.
 private _sizeReticle = _reticleAdjust * _detailScaleFactor;
@@ -116,7 +126,9 @@ _positionBody = [
 
 _ctrlBody ctrlSetPosition _positionBody;
 _ctrlBodyNight ctrlSetPosition _positionBody;
+_ctrlBodyInnerShadow ctrlSetPosition _positionBody;
 
 _ctrlReticle ctrlCommit RECENTER_TIME;
 _ctrlBody ctrlCommit RECENTER_TIME;
 _ctrlBodyNight ctrlCommit RECENTER_TIME;
+_ctrlBodyInnerShadow ctrlCommit RECENTER_TIME;

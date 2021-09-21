@@ -30,6 +30,7 @@ GVAR(FadeReticleInterval) = [0,0,nil,0,0];
 GVAR(OpticReticleDetailTextures) = [];
 GVAR(OpticBodyTexture) = "";
 GVAR(OpticBodyTextureNight) = "";
+GVAR(OpticBodyInnerShadowTexture) = "";
 GVAR(ppEffects) = [];
 GVAR(manualReticleNightSwitch) = false;
 GVAR(useReticleNight) = false;
@@ -37,6 +38,12 @@ GVAR(reticleSafezoneSize) = RETICLE_SAFEZONE_DEFAULT_SIZE;
 GVAR(hidePeripheralVision) = false;
 GVAR(hideMagnification) = false;
 GVAR(disableTilt) = false;
+GVAR(camDirPrevFrame) = 0;
+GVAR(camPitchPrevFrame) = 0;
+GVAR(onMoveAnimEndFrame) = 0;
+GVAR(onMoveAnimSafeFrame) = 0;
+GVAR(onMoveAnimStarted) = false;
+GVAR(onMovePPEffect) = nil;
 
 // Update optic info.
 ["weapon", {

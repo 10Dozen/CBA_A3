@@ -68,6 +68,15 @@ if (GVAR(OpticReticleDetailTextures) isEqualTo []) then {
 GVAR(OpticBodyTexture) = getText (_config >> "bodyTexture");
 GVAR(OpticBodyTextureSize) = getNumber (_config >> "bodyTextureSize");
 GVAR(OpticBodyTextureNight) = getText (_config >> "bodyTextureNight");
+GVAR(OpticBodyInnerShadowTexture) = getText (_config >> "bodyInnerShadowTexture");
+
+diag_log format ["Inner shadow: %1", GVAR(OpticBodyInnerShadowTexture)];
+
+// Use night body texture as shadow (or none, if both not defined)
+if (GVAR(OpticBodyInnerShadowTexture) isEqualTo "") then {
+    GVAR(OpticBodyInnerShadowTexture) = GVAR(OpticBodyTextureNight);
+};
+diag_log format ["Inner shadow adjusted: %1", GVAR(OpticBodyInnerShadowTexture)];
 
 if (GVAR(OpticBodyTextureNight) isEqualTo "") then {
     GVAR(OpticBodyTextureNight) = GVAR(OpticBodyTexture);
@@ -110,6 +119,14 @@ GVAR(ppEffects) = getArray (_config >> "opticsPPEffects") apply {
     _ppEffect ppEffectCommit 0;
     _ppEffect
 };
+
+private _onMovePPEffect = GVAR(onMovePPEffect);
+if (isNil "_onMovePPEffect") then {
+    _onMovePPEffect = ppEffectCreate ["DynamicBlur", 10];
+    GVAR(onMovePPEffect) = _onMovePPEffect;
+};
+_onMovePPEffect ppEffectEnable false;
+_onMovePPEffect ppEffectCommit 0;
 
 GVAR(hideMagnification) = getNumber (_config >> "hideMagnification") != 0;
 GVAR(disableTilt) = getNumber (_config >> "disableTilt") != 0;
